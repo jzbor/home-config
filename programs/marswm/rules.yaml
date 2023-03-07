@@ -1,0 +1,6 @@
+- identifiers:
+    application: 'discord'
+  actions: [ !move-workspace 6 ]
+- identifiers:
+    application: 'thunderbird'
+  actions: [ !move-workspace 5 ]

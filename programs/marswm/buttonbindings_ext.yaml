@@ -1,0 +1,4 @@
+- modifiers: []
+  button: 2
+  targets: [root]
+  action: !execute moonwm-menu favorites-pie
