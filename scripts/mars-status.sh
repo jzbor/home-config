@@ -1,5 +1,6 @@
 #/bin/sh
 SEPARATOR='\x1f'
+BATTERY_PATH='/sys/class/power_supply/BAT0'
 
 
 ### HELPERS
@@ -62,7 +63,7 @@ volume_block () {
 }
 
 battery_block () {
-	status="$(cat /sys/class/power_supply/BAT0/status)"
+	status="$(cat "$BATTERY_PATH")"
 	if [ "$status" = 'Charging' ]; then
 		printf 'charging: %s' "$(cat /sys/class/power_supply/BAT0/capacity)%"
 	else
@@ -76,7 +77,9 @@ date_block () {
 
 blocks () {
 	printf "%s$SEPARATOR" "$(volume_block)"
-	printf "%s$SEPARATOR" "$(battery_block)"
+	if [ -f "$BATTERY_PATH" ]; then
+		printf "%s$SEPARATOR" "$(battery_block)"
+	fi
 	printf "%s" "$(date_block)"
 }
 
