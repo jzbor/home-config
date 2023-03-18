@@ -63,11 +63,15 @@ volume_block () {
 }
 
 battery_block () {
-	status="$(cat "$BATTERY_PATH")"
-	if [ "$status" = 'Charging' ]; then
-		printf 'charging: %s' "$(cat /sys/class/power_supply/BAT0/capacity)%"
+	if [ -e "$BATTERY_PATH" ]; then
+		status="$(cat "$BATTERY_PATH/status")"
+		if [ "$status" = 'Charging' ]; then
+			printf 'charging: %s' "$(cat /sys/class/power_supply/BAT0/capacity)%"
+		else
+			printf 'battery: %s' "$(cat /sys/class/power_supply/BAT0/capacity)%"
+		fi
 	else
-		printf 'battery: %s' "$(cat /sys/class/power_supply/BAT0/capacity)%"
+		echo "plugged in"
 	fi
 }
 
@@ -77,9 +81,7 @@ date_block () {
 
 blocks () {
 	printf "%s$SEPARATOR" "$(volume_block)"
-	if [ -f "$BATTERY_PATH" ]; then
-		printf "%s$SEPARATOR" "$(battery_block)"
-	fi
+	printf "%s$SEPARATOR" "$(battery_block)"
 	printf "%s" "$(date_block)"
 }
 
