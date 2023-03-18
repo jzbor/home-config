@@ -38,6 +38,7 @@ battery_button () {
 volume_button () {
 	case "$BUTTON" in
 		2) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
+		3) media-menu ;;
 		5) pactl set-sink-volume @DEFAULT_SINK@ +5% \
 			&& canberra-gtk-play -i audio-volume-change ;;
 		4) pactl set-sink-volume @DEFAULT_SINK@ -5% \
