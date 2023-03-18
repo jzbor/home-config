@@ -4,7 +4,9 @@
   imports = [
     ../programs/marswm
     ../programs/rofi
-    ../programs/touchegg ];
+    ../programs/touchegg
+    ../programs/xmenu
+  ];
 
   home.packages = with pkgs; [
     pavucontrol
