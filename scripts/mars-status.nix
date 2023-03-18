@@ -12,6 +12,7 @@ let
     libcanberra-gtk3
     libnotify
     pulseaudio
+    xmenu
   ];
 in pkgs.symlinkJoin {
   name = script-name;

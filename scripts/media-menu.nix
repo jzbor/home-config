@@ -9,9 +9,8 @@ let
   script-inputs = with pkgs; [
     coreutils
     gnugrep
-    libcanberra-gtk3
-    libnotify
-    pulseaudio
+    playerctl
+    xmenu
   ];
 in pkgs.symlinkJoin {
   name = script-name;
