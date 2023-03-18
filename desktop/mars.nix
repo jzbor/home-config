@@ -45,6 +45,7 @@
     enable = true;
     #windowManager.command = "marswm";
     initExtra = ''
+      [ -f ~/.screenlayout/default.sh ] && /bin/sh ~/.screenlayout/default.sh;
       buttermilk &
       marsbar &
       touchegg &
