@@ -7,5 +7,7 @@
   ];
 
   # Color scheme
-  colorScheme = nix-colors.lib-core.schemeFromYAML "apprentice" (builtins.readFile ./colorschemes/apprentice.yaml);
+  colorScheme =
+    let name = "mankai";
+    in nix-colors.lib-core.schemeFromYAML "${name}" (builtins.readFile ./colorschemes/${name}.yaml);
 }

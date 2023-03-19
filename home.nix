@@ -32,6 +32,7 @@
     cowsay
     foliot
     pulseaudio  # pactl is used for scripting
+    yt-dlp
 
     # unfree programs
     spotify
