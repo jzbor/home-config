@@ -8,6 +8,6 @@
 
   # Color scheme
   colorScheme =
-    let name = "mankai";
+    let name = "apprentice";
     in nix-colors.lib-core.schemeFromYAML "${name}" (builtins.readFile ./colorschemes/${name}.yaml);
 }

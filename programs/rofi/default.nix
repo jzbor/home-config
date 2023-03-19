@@ -8,14 +8,13 @@
   programs.rofi.theme = ./theme.rasi;
   xdg.configFile."rofi/theme.rasi".text = builtins.concatStringsSep "\n" [
     '' * {
-      test:            #${config.colorScheme.colors.base00};
-      background:      #1c1c1c;
-      argbbackground:  #1c1c1c80;
-      backgroundlight: #6c6c6c;
+      background:      #${config.colorScheme.colors.base00};
+      argbbackground:  #${config.colorScheme.colors.base00}80;
+      backgroundlight: #${config.colorScheme.colors.base08};
       transparent:     #00000000;
-      foreground:      #bcbcbc;
-      urgent:          #5f875f;
-      selected:        #af5f5f;
+      foreground:      #${config.colorScheme.colors.base0F};
+      urgent:          #${config.colorScheme.colors.base01};
+      selected:        #${config.colorScheme.colors.base04};
     } ''
     (builtins.readFile ./theme.rasi)
   ];
