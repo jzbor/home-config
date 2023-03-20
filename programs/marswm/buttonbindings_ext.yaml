@@ -2,3 +2,6 @@
   button: 2
   targets: [root]
   action: !execute moonwm-menu favorites-pie
+- modifiers: [ Shift ]
+  button: 3
+  action: !execute mars-relay menu
