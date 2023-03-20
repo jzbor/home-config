@@ -18,7 +18,7 @@
     homeConfigurations.jzbor = home-manager.lib.homeManagerConfiguration (
       let
         system = "x86_64-linux";
-        pkgs = nixpkgs.legacyPackages.${system}.extend jzbor-overlay.overlay;
+        pkgs = nixpkgs.legacyPackages.${system}.extend jzbor-overlay.overlays.default;
       in {
         inherit pkgs;
 
