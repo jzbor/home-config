@@ -7,6 +7,7 @@
     ./desktop/mars.nix
 
     ./programs/neovim
+    ./programs/zsh
   ];
 
   nixpkgs.config.allowUnfree = true;
