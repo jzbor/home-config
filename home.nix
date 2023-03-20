@@ -29,9 +29,8 @@
   };
 
   home.packages = with pkgs; [
-    cowsay
     foliot
-    pulseaudio  # pactl is used for scripting
+    tldr
     yt-dlp
 
     # unfree programs
