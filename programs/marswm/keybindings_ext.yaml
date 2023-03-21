@@ -50,6 +50,9 @@
 - modifiers: [ Mod4 ]
   key: w
   action: !execute firefox
+- modifiers: [ Mod4, Shift ]
+  key: w
+  action: !execute firefox --private-window
 - modifiers: [ Mod4 ]
   key: v
   action: !execute mpv

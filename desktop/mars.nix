@@ -48,10 +48,11 @@
     #windowManager.command = "marswm";
     initExtra = ''
       [ -f ~/.screenlayout/default.sh ] && /bin/sh ~/.screenlayout/default.sh;
-      buttermilk &
+      xwallpaper --daemon --zoom ~/.background-image &
+      command -v solaar > /dev/null && solaar -w hide &
       marsbar &
       touchegg &
-      xwallpaper --daemon --zoom ~/.background-image &
+      buttermilk &
       xset -dpms
     '';
     #windowManager.command = "${pkgs.marswm}/bin/marswm";
