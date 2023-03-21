@@ -33,7 +33,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities()
 local servers = { 'clangd', 'rust-analyzer', 'pyright', 'tsserver', 'gopls' }
 local path = os.getenv('PATH');
 for _, lsp in ipairs(servers) do
-  if (os.execute('command -v ' .. lsp) == 0)
+  if vim.fn.executable(lsp)
   then
     if (lsp == 'rust-analyzer') -- workaround
     then
