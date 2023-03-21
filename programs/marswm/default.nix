@@ -5,8 +5,11 @@
   home.packages = with pkgs; [
     # required by key bindings
     libcanberra-gtk3
+    maim
     playerctl
     pulseaudio
+    coreutils  # tee
+    xclip
   ];
 
 

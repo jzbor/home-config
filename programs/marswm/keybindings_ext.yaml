@@ -41,6 +41,11 @@
 - key: XF86MonBrightnessDown
   action: !execute light -U 10
 
+# Screenshots
+- modifiers: [ Mod4 ]
+  key: Print
+  action: !execute maim -s | tee "$HOME/Pictures/Screenshots/$(date '+%Y-%m-%d_%H-%M-%S.png')" | xclip -selection clipboard -t image/png -i
+
 # Launchers
 - modifiers: [ Mod4 ]
   key: e
