@@ -28,6 +28,7 @@
 
   services.picom = {
     enable = true;
+    package = pkgs.picom;
     backend = "egl";
     vSync = true;
   };
