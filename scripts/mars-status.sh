@@ -5,6 +5,11 @@ BATTERY_PATH='/sys/class/power_supply/BAT0'
 
 ### HELPERS
 
+confirmation_submenu () {
+	printf "\n\tYou sure?\n\t\t%s" "$1"
+}
+
+
 pa_volume () {
 	pactl get-sink-volume @DEFAULT_SINK@ | grep "Volume" | sed 's/.*\/\s*\(.*\) \s*\/.*/\1/;'
 }
@@ -21,6 +26,13 @@ pa_loop () {
 	pactl subscribe | grep --line-buffered "Event 'change' on sink " | while read line; do
 		update_blocks
 	done
+}
+
+system_menu () {
+SYSTEM_MENU="Logout $(confirmation_submenu 'pkill marswm')
+Poweroff $(confirmation_submenu poweroff)
+Reboot $(confirmation_submenu reboot)"
+	echo "$SYSTEM_MENU" | xmenu | /bin/sh
 }
 
 
@@ -48,7 +60,10 @@ volume_button () {
 }
 
 date_button () {
-	notify-send "$(date)"
+	case "$BUTTON" in
+		3) system_menu ;;
+		*) notify-send "$(date)" ;;
+	esac
 }
 
 
