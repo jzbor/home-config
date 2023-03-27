@@ -52,11 +52,20 @@
     startInBackground = true;
   };
 
+  # Replace command-not-found with nix-index
+  programs.command-not-found.enable = false;
+  programs.bash.initExtra = ''
+    source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
+  '';
+  programs.zsh.initExtra = ''
+    source ${pkgs.nix-index}/etc/profile.d/command-not-found.sh
+  '';
+
   # enable fontconfig and make fonts discoverable
   fonts.fontconfig.enable = true;
 
   programs.home-manager.enable = true;
-  programs.home-manager.path = "$HOME/Desktop/home-config";
+  programs.home-manager.path = "$HOME/Programming/Nix/home-config";
 
   # Management of XDG base directories
   xdg.enable = true;
