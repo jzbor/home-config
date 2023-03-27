@@ -1,7 +1,7 @@
 #!/bin/sh
 
 if command -v home-manager > /dev/null; then
-	home-manager switch --flake . --impure
+	home-manager switch --flake .
 else
-	nix run . switch -- -flake . --impure
+	nix run . switch -- -flake .
 fi

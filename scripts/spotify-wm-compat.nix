@@ -9,7 +9,7 @@ let
   script-inputs = with pkgs; [
     marswm
     coreutils
-    spotify
+    # spotify  # removed to avoid impurity
     xdotool
   ];
 in pkgs.symlinkJoin {
