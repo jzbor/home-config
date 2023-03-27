@@ -34,10 +34,6 @@
     tldr
     yt-dlp
 
-    # unfree programs
-    spotify
-    discord
-
     # fonts
     noto-fonts
     noto-fonts-cjk
