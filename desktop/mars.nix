@@ -9,16 +9,31 @@
   ];
 
   home.packages = with pkgs; [
+    gthumb
     pavucontrol
+    pcmanfm
     xclip
     xorg.xev
     xorg.xkill
     xorg.xprop
     xwallpaper
-
-    # Required by status script
-    pulseaudio
   ];
+
+  # Set default applications
+  xdg.mimeApps.enable = true;
+  xdg.mimeApps.defaultApplications =
+    let
+      imageViewers = [ "org.gnome.gthumb.desktop" ];
+      fileBrowsers = [ "pcmanfm.desktop" ];
+    in {
+      "inode/directory" = fileBrowsers;
+
+      "image/gif" = imageViewers;
+      "image/jpeg" = imageViewers;
+      "image/png "= imageViewers;
+      "image/svg" = imageViewers;
+      "image/webp" = imageViewers;
+  };
 
 
   services.gnome-keyring.enable = true;
@@ -28,6 +43,7 @@
 
   services.picom = {
     enable = true;
+    package = pkgs.picom;
     backend = "egl";
     vSync = true;
   };
