@@ -32,6 +32,9 @@
       rgrep = "grep -RHIni --exclude-dir .git --exclude tags --color";
       valgrind = "valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes";
       pin-nix-shell = "nix-instantiate shell.nix --indirect --add-root shell.drv";
+      installed-nixos-packages = "nix path-info -shr /run/current-system | sort -hk2";
+      installed-profile-packages = "nix path-info -shr \"$HOME/.nix-profile\" | sort -hk2";
+      stored-nix-pkgs = "find /nix/store -maxdepth 1 | xargs du -sh | sort -h";
     };
 
     # Prompt
