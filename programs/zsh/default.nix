@@ -31,6 +31,7 @@
     shellAliases = {
       rgrep = "grep -RHIni --exclude-dir .git --exclude tags --color";
       valgrind = "valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes";
+      pin-nix-shell = "nix-instantiate shell.nix --indirect --add-root shell.drv";
     };
 
     # Prompt
