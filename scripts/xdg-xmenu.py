@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 #
 # Original version by OliverLew: https://github.com/OliverLew/xdg-xmenu
 #

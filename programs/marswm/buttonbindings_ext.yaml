@@ -1,7 +1,9 @@
+# Root window actions
 - modifiers: []
   button: 2
   targets: [root]
   action: !execute moonwm-menu favorites-pie
-- modifiers: [ Shift ]
+- modifiers: []
   button: 3
-  action: !execute mars-relay menu
+  targets: [root]
+  action: !execute xdg-xmenu -m | xmenu | /bin/sh

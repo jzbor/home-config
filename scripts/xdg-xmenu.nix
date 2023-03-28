@@ -3,7 +3,7 @@
 let
   script-name = "xdg-xmenu";
   script-src = builtins.readFile ./xdg-xmenu.py;
-  script = (pkgs.writeShellScriptBin script-name script-src).overrideAttrs(old: {
+  script = (pkgs.writeScriptBin script-name script-src).overrideAttrs(old: {
     buildCommand = "${old.buildCommand}\n patchShebangs $out";
   });
   script-inputs = with pkgs; [
