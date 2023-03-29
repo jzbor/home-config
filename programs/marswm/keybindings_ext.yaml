@@ -59,6 +59,9 @@
   key: w
   action: !execute firefox --private-window
 - modifiers: [ Mod4 ]
+  key: b
+  action: !execute pcmanfm
+- modifiers: [ Mod4 ]
   key: v
   action: !execute mpv
 - modifiers: [ Mod4 ]
