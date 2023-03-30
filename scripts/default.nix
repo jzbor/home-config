@@ -6,6 +6,7 @@
     (pkgs.callPackage ./media-menu.nix {})
     (pkgs.callPackage ./nix-cleanup.nix {})
     (pkgs.callPackage ./spotify-wm-compat.nix {})
+    (pkgs.callPackage ./wallpaper-daemon.nix {})
     (pkgs.callPackage ./xdg-xmenu.nix {})
   ];
 }
