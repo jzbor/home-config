@@ -16,7 +16,6 @@
     xorg.xev
     xorg.xkill
     xorg.xprop
-    xwallpaper
   ];
 
   # Set default applications
@@ -63,7 +62,7 @@
     #windowManager.command = "marswm";
     initExtra = ''
       [ -f ~/.screenlayout/default.sh ] && /bin/sh ~/.screenlayout/default.sh;
-      xwallpaper --daemon --zoom ~/.background-image &
+      wallpaper-daemon &
       command -v solaar > /dev/null && solaar -w hide &
       marsbar &
       touchegg &
