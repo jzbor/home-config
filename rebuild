@@ -3,5 +3,5 @@
 if command -v home-manager > /dev/null; then
 	home-manager switch --flake .
 else
-	nix run . switch -- -flake .
+	nix run . switch -- --flake .
 fi
