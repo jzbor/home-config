@@ -50,6 +50,12 @@
 - modifiers: [ Mod4 ]
   key: e
   action: !execute rofi -show window
+- modifiers: [ Mod4 ]
+  key: r
+  action: !execute rofi -dmenu -p "nix run" | xargs -I "{}" nix run "nixpkgs#{}"
+- modifiers: [ Mod4, Shift ]
+  key: r
+  action: !execute rofi -dmenu -p "nix run" | xargs -I "{}" nix run --offline "nixpkgs#{}"
 
 # Programs
 - modifiers: [ Mod4 ]
