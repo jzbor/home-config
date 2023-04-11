@@ -92,3 +92,7 @@ vim.api.nvim_exec(
 ]],
   false
 )
+
+-- Workaround to fix typst plugin
+-- https://github.com/kaarmu/typst.vim/issues/16
+vim.cmd 'autocmd BufNewFile,BufRead *.typ set filetype=typst'

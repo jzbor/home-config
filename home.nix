@@ -33,6 +33,8 @@
     foliot
     tldr
     yt-dlp
+    typst
+    #typst-lsp
 
     # fonts
     noto-fonts
