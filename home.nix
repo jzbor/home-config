@@ -34,7 +34,7 @@
     tldr
     yt-dlp
     typst
-    #typst-lsp
+    typst-lsp
 
     # fonts
     noto-fonts

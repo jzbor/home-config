@@ -30,11 +30,12 @@ end
 capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Enable the following language servers. If you ever find yourself needing another programming language support, you'll have to find its LSP, add it to this list and make sure it is installed in your system! We'll go through installing tsserver together for TypeScript support.
-local servers = { 'clangd', 'rust-analyzer', 'pyright', 'tsserver', 'gopls' }
+local servers = { 'clangd', 'rust-analyzer', 'pyright', 'tsserver', 'gopls', 'typst-lsp' }
 local path = os.getenv('PATH');
 for _, lsp in ipairs(servers) do
   if vim.fn.executable(lsp) == 1
   then
+    lsp = string.gsub(lsp, '-', '_')
     if (lsp == 'rust-analyzer') -- workaround
     then
       lsp = 'rust_analyzer'

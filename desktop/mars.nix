@@ -24,6 +24,7 @@
     let
       imageViewers = [ "org.gnome.gthumb.desktop" ];
       fileBrowsers = [ "pcmanfm.desktop" ];
+      pdfReaders = [ "org.pwmt.zathura.desktop" "org.gnome.Evince.desktop" ];
     in {
       "inode/directory" = fileBrowsers;
 
@@ -32,6 +33,8 @@
       "image/png "= imageViewers;
       "image/svg" = imageViewers;
       "image/webp" = imageViewers;
+
+      "application/pdf" = pdfReaders;
   };
 
 
