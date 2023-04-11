@@ -13,6 +13,6 @@
     "xmenu.border" = "#${config.colorScheme.colors.base02}";
     "xmenu.separator" = "#${config.colorScheme.colors.base02}";
     "xmenu.borderWidth" = 1;
-    "xmenu.separatorWidth" = 0;
+    "xmenu.separatorWidth" = 4;
   };
 }
