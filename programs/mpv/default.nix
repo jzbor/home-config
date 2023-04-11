@@ -17,5 +17,6 @@
     #osc = "no";  # required for youtube-quality script
     idle = "yes";
     force-window = "yes";
+    ytdl-format = "bestvideo[height<=?1080][fps<=?60]+bestaudio/best";
   };
 }
