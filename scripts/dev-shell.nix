@@ -1,13 +1,13 @@
 { lib, stdenv, pkgs, ... }:
 
 let
-  script-name = "xdg-xmenu";
-  script-src = builtins.readFile ./xdg-xmenu.py;
+  script-name = "dev-shell";
+  script-src = builtins.readFile ./dev-shell.py;
   script = (pkgs.writeScriptBin script-name script-src).overrideAttrs(old: {
     buildCommand = "${old.buildCommand}\n patchShebangs $out";
   });
   script-inputs = with pkgs; [
-    imagemagick
+    nix
   ];
 in pkgs.symlinkJoin {
   name = script-name;
