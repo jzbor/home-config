@@ -41,7 +41,10 @@
     localVariables."PROMPT" = "\n%F{magenta}[%f%n%F{magenta}@%M]%f %F{blue}%~ %f";
 
     # Additional configuration
-    initExtra = builtins.readFile ./rprompt.zsh;
+    initExtra = builtins.concatStringsSep "\n" [
+      (builtins.readFile ./config.zsh)
+      (builtins.readFile ./rprompt.zsh)
+    ];
 
   };
 }
