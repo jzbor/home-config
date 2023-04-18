@@ -27,7 +27,7 @@
           border_color: 0x${config.colorScheme.colors.base00}
           no_decoration:
             frame_width: [2, 2, 2, 2]
-          font: FiraCode:size=8
+          font: Noto Sans:size=8
       ''
     ];
 
@@ -36,6 +36,7 @@
       ''
         style:
           background: 0x${config.colorScheme.colors.base00}
+          font: Noto Sans
           workspaces:
             foreground: 0x${config.colorScheme.colors.base00}
             inner_background: 0x${config.colorScheme.colors.base04}
