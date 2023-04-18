@@ -29,7 +29,7 @@
     homeConfigurations."jzbor@pinebook-pro" = home-manager.lib.homeManagerConfiguration (
       let
         system = "aarch64-linux";
-        pkgs = nixpkgs.legacyPackages.${system}.extend jzbor-overlay.overlay;
+        pkgs = nixpkgs.legacyPackages.${system}.extend jzbor-overlay.overlays.default;
       in {
         inherit pkgs;
 
