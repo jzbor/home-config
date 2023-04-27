@@ -6,8 +6,7 @@
 
     # Search, completion and suggestions
     historySubstringSearch.enable = true;
-    enableCompletion = true;
-    enableAutosuggestions = true;
+    #enableAutosuggestions = true;
 
     # History
     history = {
@@ -19,7 +18,6 @@
       path = "${config.xdg.dataHome}/zsh/zsh_history";
       save = 10000;  # number of lines to save
       size = 10000;  # number of lines to keep
-      share = true;  # share history between sessions
     };
 
     dotDir = ".config/zsh";
