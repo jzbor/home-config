@@ -96,3 +96,6 @@ vim.api.nvim_exec(
 -- Workaround to fix typst plugin
 -- https://github.com/kaarmu/typst.vim/issues/16
 vim.cmd 'autocmd BufNewFile,BufRead *.typ set filetype=typst'
+
+-- Fix colors for coqtail
+vim.cmd 'hi CoqtailChecked guibg=#1c301c'
