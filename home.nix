@@ -32,9 +32,11 @@
   home.packages = with pkgs; [
     foliot
     tldr
-    yt-dlp
     typst
     typst-lsp
+    unzip
+    yt-dlp
+    zip
 
     # fonts
     noto-fonts
