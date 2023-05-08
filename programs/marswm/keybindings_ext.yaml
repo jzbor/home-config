@@ -18,22 +18,22 @@
 
 # Media Control
 - key: XF86AudioPlay
-  action: !execute playerctl play-pause -p spotify
+  action: !execute playerctl play-pause -p Lollypop,spotify
 - key: XF86AudioPause
-  action: !execute playerctl play-pause -p spotify
+  action: !execute playerctl play-pause -p Lollypop,spotify
 - key: XF86AudioPrev
-  action: !execute playerctl previous -p spotify
+  action: !execute playerctl previous -p Lollypop,spotify
 - key: XF86AudioNext
-  action: !execute playerctl next -p spotify
+  action: !execute playerctl next -p Lollypop,spotify
 - modifiers: [ Mod4 ]
   key: i
-  action: !execute playerctl play-pause -p spotify
+  action: !execute playerctl play-pause -p Lollypop,spotify
 - modifiers: [ Mod4 ]
   key: u
-  action: !execute playerctl previous -p spotify
+  action: !execute playerctl previous -p Lollypop,spotify
 - modifiers: [ Mod4 ]
   key: o
-  action: !execute playerctl next -p spotify
+  action: !execute playerctl next -p Lollypop,spotify
 
 # Brightness Control
 - key: XF86MonBrightnessUp
