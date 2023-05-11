@@ -1,7 +1,16 @@
+### FLOATING
+- identifiers:
+    title: 'Discord Updater'
+  floating: true
+
+
+### WORKSPACES
+
 # Workspace 5:
 - identifiers:
     application: 'thunderbird'
-  actions: [ !move-workspace 4 ]
+  workspace: 4
+  # actions: [ !move-workspace 4 ]
 
 # Workspace 6:
 - identifiers:
