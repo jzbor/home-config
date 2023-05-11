@@ -9,7 +9,6 @@ confirmation_submenu () {
 	printf "\n\tYou sure?\n\t\t%s" "$1"
 }
 
-
 pa_volume () {
 	pactl get-sink-volume @DEFAULT_SINK@ | grep "Volume" | sed 's/.*\/\s*\(.*\) \s*\/.*/\1/;'
 }
@@ -30,8 +29,12 @@ pa_loop () {
 
 system_menu () {
 SYSTEM_MENU="Logout $(confirmation_submenu 'pkill marswm')
+Suspend $(confirmation_submenu poweroff)
 Poweroff $(confirmation_submenu poweroff)
-Reboot $(confirmation_submenu reboot)"
+Reboot $(confirmation_submenu reboot)
+
+Output Profile
+$(find ~/.screenlayout -type f | sed 's/^\(.*\)\/\(.*\)\(\.sh\)/\t\2\t\/bin\/sh \1\/\2\3/')"
 	echo "$SYSTEM_MENU" | xmenu | /bin/sh
 }
 
