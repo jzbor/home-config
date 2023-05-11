@@ -4,6 +4,14 @@
   floating: true
 
 
+=======
+### INITIAL PLACEMENT
+- identifiers:
+    application: 'Nextcloud'
+    title: 'Nextcloud'
+  initial_placement: wherever
+
+
 ### WORKSPACES
 
 # Workspace 5:

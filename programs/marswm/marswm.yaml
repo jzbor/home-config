@@ -1,4 +1,5 @@
 workspaces: 8
+initial_placement: centered
 layout:
   default_layout: floating
   gap_width: 0
