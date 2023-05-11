@@ -7,7 +7,7 @@ let
     buildCommand = "${old.buildCommand}\n patchShebangs $out";
   });
   script-inputs = with pkgs; [
-    coreutils
+    # coreutils
     gnugrep
     libcanberra-gtk3
     libnotify

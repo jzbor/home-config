@@ -8,7 +8,7 @@ let
   });
   script-inputs = with pkgs; [
     marswm
-    coreutils
+    # coreutils
     # spotify  # removed to avoid impurity
     xdotool
   ];

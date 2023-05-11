@@ -30,6 +30,7 @@
   };
 
   home.packages = with pkgs; [
+    (pkgs.uutils-coreutils.override { prefix = ""; })
     foliot
     tldr
     typst
