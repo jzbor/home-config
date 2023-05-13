@@ -65,14 +65,6 @@
     #windowManager.command = "marswm";
     initExtra = ''
       command -v solaar > /dev/null && solaar -w hide &
-      xset -dpms
-      if [ "$XDG_CURRENT_DESKTOP" = "marswm" ] || [ "$XDG_CURRENT_DESKTOP" = "marswm-dev" ]; then
-        [ -f ~/.screenlayout/default.sh ] && /bin/sh ~/.screenlayout/default.sh;
-        wallpaper-daemon &
-        marsbar &
-        touchegg &
-        buttermilk &
-      fi
     '';
     #windowManager.command = "${pkgs.marswm}/bin/marswm";
     #initExtra = "${pkgs.buttermilk}/bin/buttermilk &";

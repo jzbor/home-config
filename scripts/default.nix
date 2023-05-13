@@ -3,6 +3,7 @@
 {
   home.packages = [
     (pkgs.callPackage ./dev-shell.nix {})
+    (pkgs.callPackage ./mars-startup.nix {})
     (pkgs.callPackage ./mars-status.nix {})
     (pkgs.callPackage ./media-menu.nix {})
     (pkgs.callPackage ./nix-cleanup.nix {})

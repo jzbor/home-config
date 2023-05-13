@@ -1,4 +1,5 @@
 workspaces: 8
+on_startup: mars-startup
 initial_placement: centered
 layout:
   default_layout: floating
