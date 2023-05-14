@@ -32,6 +32,8 @@
   home.packages = with pkgs; [
     (pkgs.uutils-coreutils.override { prefix = ""; })
     foliot
+    librespeed-cli
+    powertop
     tldr
     typst
     typst-lsp
