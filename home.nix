@@ -33,6 +33,7 @@
     (pkgs.uutils-coreutils.override { prefix = ""; })
     foliot
     librespeed-cli
+    okular
     powertop
     tldr
     typst
