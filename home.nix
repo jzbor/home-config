@@ -1,4 +1,4 @@
-{ config, pkgs, nix-colors, ... }: {
+{ config, pkgs, nix-colors, lib, ... }: {
   imports = [
     nix-colors.homeManagerModule
     ./scripts
@@ -63,7 +63,7 @@
   fonts.fontconfig.enable = true;
 
   programs.home-manager.enable = true;
-  programs.home-manager.path = "$HOME/Programming/Nix/home-config";
+  programs.home-manager.path = lib.mkForce "$HOME/Programming/Nix/home-config";
 
   # Management of XDG base directories
   xdg.enable = true;
