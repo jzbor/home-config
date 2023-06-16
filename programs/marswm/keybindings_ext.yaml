@@ -6,6 +6,8 @@
   action: !execute pactl set-sink-volume @DEFAULT_SINK@ -5% && canberra-gtk-play -i audio-volume-change
 - key: XF86AudioMute
   action: !execute pactl set-sink-mute @DEFAULT_SINK@ toggle
+- key: XF86AudioMicMute
+  action: !execute pactl set-source-mute @DEFAULT_SOURCE@ toggle
 - modifiers: [ Mod4 ]
   key: bracketright
   action: !execute pactl set-sink-volume @DEFAULT_SINK@ +5% && canberra-gtk-play -i audio-volume-change
@@ -15,6 +17,9 @@
 - modifiers: [ Mod4 ]
   key: backslash
   action: !execute pactl set-sink-mute @DEFAULT_SINK@ toggle
+- modifiers: [ Mod4, Shift ]
+  key: backslash
+  action: !execute pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
 # Media Control
 - key: XF86AudioPlay
