@@ -44,7 +44,7 @@ require('packer').startup(function()
   use 'LnL7/vim-nix'
   -- use { 'kaarmu/typst.vim', ft = {'typ'} } -- currently broken
   use { 'kaarmu/typst.vim' }
-  use { 'whonore/Coqtail', ft = 'coq' }
+  use { 'whonore/Coqtail' }
 end)
 
 -- luasnip setup (you can leave this here or move it to its own configuration file in `lua/plugs/luasnip.lua`.)
