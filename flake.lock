@@ -21,11 +21,11 @@
         "systems": "systems"
       },
       "locked": {
-        "lastModified": 1687709756,
-        "narHash": "sha256-Y5wKlQSkgEK2weWdOu4J3riRd+kV/VCgHsqLNTTWQ/0=",
+        "lastModified": 1689068808,
+        "narHash": "sha256-6ixXo3wt24N/melDWjq70UuHQLxGV8jZvooRanIHXw0=",
         "owner": "numtide",
         "repo": "flake-utils",
-        "rev": "dbabf0ca0c0c4bce6ea5eaf65af5cb694d2082c7",
+        "rev": "919d646de7be200f3bf08cb76ae1f09402b6f9b4",
         "type": "github"
       },
       "original": {
@@ -41,11 +41,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1687856573,
-        "narHash": "sha256-rzC+5rRsy92Dhjb1q5e5tDjdhRfL1z4WFWwlcD3a+4Q=",
+        "lastModified": 1689495092,
+        "narHash": "sha256-yZu2j5FpLZEPhJQQutMCPTxa1VMigLPabLYvLTq6ASM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "4c08f65ab5105a55eed3fc9003f3e6874b69fe13",
+        "rev": "2f84579a70b8c74e5ebb37299a0c3ba279f09382",
         "type": "github"
       },
       "original": {
@@ -62,11 +62,11 @@
         "utils": "utils"
       },
       "locked": {
-        "lastModified": 1687886057,
-        "narHash": "sha256-GowNxBMbKW/3gV3sgfg+XfvsonlNES0OE0+IytD7ol8=",
+        "lastModified": 1688929529,
+        "narHash": "sha256-fNhjivoLe6ppekVVVN9CtkEtFHUvKHw7QBN17/wDBJA=",
         "owner": "jzbor",
         "repo": "nix-overlay",
-        "rev": "972fb05b2ba36573866194db3576bd5df878dda7",
+        "rev": "b9021e6700f1ba6e99a31e1760a7db6e5a8910e2",
         "type": "github"
       },
       "original": {
@@ -96,10 +96,10 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1687335664,
-        "narHash": "sha256-gMoOCTUSLozoi+eSe99SGzjNJdgciMOoNxVJlVrqLfs=",
-        "path": "/nix/store/dm1xsglyq90vpskysd8sbzd3ms9wjybj-source",
-        "rev": "7b697d9698d5ae350e49e8eeb05c568708bdd9f0",
+        "lastModified": 1689601424,
+        "narHash": "sha256-WEqoSflQP65MF9O9k+JEkvUXMEoyCatmMAoLOowcEoE=",
+        "path": "/nix/store/b63zicy7mkwlp4vmca056kawsrmxfr36-source",
+        "rev": "d0f2758381caca8b4fb4a6cac61721cc9de06bd9",
         "type": "path"
       },
       "original": {
