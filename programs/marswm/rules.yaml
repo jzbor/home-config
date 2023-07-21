@@ -2,6 +2,9 @@
 - identifiers:
     title: 'Discord Updater'
   floating: true
+- identifiers:
+    title: 'Screen Layout Editor'
+  floating: true
 
 
 ### INITIAL PLACEMENT
