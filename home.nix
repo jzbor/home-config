@@ -31,10 +31,12 @@
 
   home.packages = with pkgs; [
     (pkgs.uutils-coreutils.override { prefix = ""; })
+    btop
     foliot
     librespeed-cli
     okular
     powertop
+    scrcpy
     tldr
     typst
     typst-lsp
