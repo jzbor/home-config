@@ -5,6 +5,13 @@
 - key: l
   modifiers: [ Mod4, Shift ]
   action: !move-main
+- key: a
+  modifiers: [ Mod4, Shift ]
+  action: !inc-gaps 5
+- key: x
+  modifiers: [ Mod4, Shift ]
+  action: !inc-gaps -5
+
 
 # Volume Control
 - key: XF86AudioRaiseVolume
@@ -85,3 +92,10 @@
 - modifiers: [ Mod4 ]
   key: s
   action: !execute spotify-wm-compat
+- key: XF86Display
+  action: !execute arandr
+- modifiers: [ Mod4 ]
+  key: y
+  action: !execute open-document
+
+
