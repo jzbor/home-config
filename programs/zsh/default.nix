@@ -23,7 +23,7 @@
     dotDir = ".config/zsh";
 
     # Highlighting
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
 
     # Aliases
     shellAliases = {

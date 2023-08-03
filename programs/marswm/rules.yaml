@@ -25,7 +25,7 @@
 
 # Workspace 6:
 - identifiers:
-    application: 'Steam'
+    application: 'steam'
   actions: [ !move-workspace 5 ]
 - identifiers:
     title: 'Steam'
