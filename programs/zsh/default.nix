@@ -34,6 +34,7 @@
       rgrep = "grep -RHIni --exclude-dir .git --exclude tags --color";
       stored-nix-pkgs = "find /nix/store -maxdepth 1 | xargs du -sh | sort -h";
       valgrind = "valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes";
+      nixos-system-generations = "nix-env -p /nix/var/nix/profiles/system --list-generations";
     };
 
     # Prompt

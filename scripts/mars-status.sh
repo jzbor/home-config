@@ -29,7 +29,7 @@ pa_loop () {
 
 system_menu () {
 SYSTEM_MENU="Logout $(confirmation_submenu 'pkill marswm')
-Suspend $(confirmation_submenu poweroff)
+Suspend $(confirmation_submenu 'systemctl suspend')
 Poweroff $(confirmation_submenu poweroff)
 Reboot $(confirmation_submenu reboot)
 
