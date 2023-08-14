@@ -22,7 +22,7 @@
   xdg.mimeApps.enable = true;
   xdg.mimeApps.defaultApplications =
     let
-      imageViewers = [ "org.gnome.gthumb.desktop" ];
+      imageViewers = [ "org.gnome.gThumb.desktop" ];
       fileBrowsers = [ "pcmanfm.desktop" ];
       pdfReaders = [ "org.pwmt.zathura.desktop" "org.gnome.Evince.desktop" ];
     in {
