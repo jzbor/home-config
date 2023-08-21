@@ -32,7 +32,14 @@
       in {
         inherit pkgs;
 
-        modules = [ ./home.nix ];
+        modules = [
+          ./home.nix
+
+          {
+            services.picom.enable = pkgs.lib.mkForce false;
+            services.nextcloud-client.enable = pkgs.lib.mkForce false;
+          }
+        ];
         extraSpecialArgs = { inherit nix-colors; };
     });
   };
