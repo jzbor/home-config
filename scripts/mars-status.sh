@@ -1,6 +1,6 @@
 #/bin/sh
 SEPARATOR='\x1f'
-BATTERY_PATH='/sys/class/power_supply/BAT0'
+BATTERY_PATH="$(find /sys/class/power_supply -maxdepth 1 -mindepth 1 | grep -i bat | head -n 1)"
 
 
 ### HELPERS
@@ -84,9 +84,9 @@ battery_block () {
 	if [ -e "$BATTERY_PATH" ]; then
 		status="$(cat "$BATTERY_PATH/status")"
 		if [ "$status" = 'Charging' ]; then
-			printf 'charging: %s' "$(cat /sys/class/power_supply/BAT0/capacity)%"
+			printf 'charging: %s' "$(cat $BATTERY_PATH/capacity)%"
 		else
-			printf 'battery: %s' "$(cat /sys/class/power_supply/BAT0/capacity)%"
+			printf 'battery: %s' "$(cat $BATTERY_PATH/capacity)%"
 		fi
 	else
 		echo "plugged in"
