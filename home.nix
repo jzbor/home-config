@@ -58,6 +58,11 @@
     startInBackground = true;
   };
 
+  services.kdeconnect = {
+    enable = true;
+    indicator = true;
+  };
+
   # Replace command-not-found with nix-index
   programs.nix-index.enable = true;
 
