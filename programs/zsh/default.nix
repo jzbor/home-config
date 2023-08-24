@@ -37,9 +37,6 @@
       nixos-system-generations = "nix-env -p /nix/var/nix/profiles/system --list-generations";
     };
 
-    # Prompt
-    localVariables."PROMPT" = "\n%F{magenta}[%f%n%F{magenta}@%M]%f %F{blue}%~ %f";
-
     # Additional configuration
     initExtra = builtins.concatStringsSep "\n" [
       (builtins.readFile ./config.zsh)
