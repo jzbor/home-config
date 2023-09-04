@@ -35,7 +35,7 @@ USER_ICON_THEME     = ''
 
 imagefiles = []
 icontheme = None
-applications = []
+applications = {}
 categories = {}
 
 
@@ -44,7 +44,7 @@ class Category:
     iconname = ''
     iconpath = ''
     match = re.compile('a^')
-    apps = set()
+    apps = {}
 
     def format(self):
         out = ''
@@ -82,7 +82,7 @@ class Application:
 def add_category(label, iconname, matchstr):
     newcat = Category()
     newcat.label = label
-    newcat.apps = set()
+    newcat.apps = {}
     newcat.iconname = iconname
     newcat.match = re.compile(matchstr)
     categories[label] = newcat
@@ -122,18 +122,19 @@ def dict_to_application(dictionary:dict):
         added = False
         for appcat in app.categories:
             if appcat in categories:
-                categories[appcat].apps.add(app)
+                if not app in categories[appcat].apps:
+                    categories[appcat].apps[app.name] = app
                 added = True
             else:
                 for cat in categories.values():
                     if cat.match.match(appcat):
-                        cat.apps.add(app)
+                        cat.apps[app.name] = app
                         added = True
                         break
             if added and not MULTIPLE_CATEGORIES:
                 break
         if not added:
-            categories['Other'].apps.add(app)
+            categories['Other'].apps[app.name] = app
 
     return app
 
@@ -163,17 +164,18 @@ def get_icon_theme():
 
 def load_desktop_file(filepath):
     file = open(filepath, 'r')
-    application = {}
+    application_dict = {}
     for line in file.readlines():
         try:
             key, value = line.strip().split('=', 1)
             # cancel before additional options are added
-            if key in application:
+            if key in application_dict:
                 break
-            application[key] = value
+            application_dict[key] = value.strip()
         except: pass
     try:
-        applications.append(dict_to_application(application))
+        application = dict_to_application(application_dict)
+        applications[application.name] = application
     except KeyError: pass
 
 
@@ -237,11 +239,11 @@ def format_xmenu(applications):
             for cat in categories.values():
                 set_icon(cat)
         for cat in categories.values():
-            if len(cat.apps) > 0:
+            visible_apps = [app for app in cat.apps.values() if not app.nodisplay and app.onlyshowin == '']
+            if len(visible_apps) > 0:
                 print(cat.format())
-                for app in cat.apps:
-                    if not app.nodisplay and app.onlyshowin == '':
-                        print('\t{}'.format(app.format()))
+                for app in visible_apps:
+                    print('\t{}'.format(app.format()))
     else:
         for app in applications:
             print(app.format())
@@ -290,4 +292,4 @@ if __name__ == '__main__':
     FORCE_REFRESH_CACHE = args.force_refresh_cache or (UPDATEEXPIRED and cache_is_expired())
     USER_ICON_THEME = args.user_icon_theme[0]
     load_desktop_files()
-    format_xmenu(applications)
+    format_xmenu(list(applications.values()))
