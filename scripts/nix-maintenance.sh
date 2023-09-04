@@ -128,19 +128,23 @@ update_home_passive () {
 cleanup () {
 	if command -v home-manager > /dev/null; then
 		echo "=> Expiring home-manager generations"
-		home-manager expire-generations "$CLEANUP_THRESHOLD"
+		home-manager expire-generations "$CLEANUP_THRESHOLD" \
+			|| die "home-manager cleanup failed"
 	else
 		echo "=> Skipping home-manager cleanup (not available)"
 	fi
 
 	echo "=> Cleaning up local profile"
-	nix profile wipe-history --older-than "$CLEANUP_THRESHOLD"
+	nix profile wipe-history --older-than "$CLEANUP_THRESHOLD" \
+		|| die "local profile cleanup failed"
 
 	echo "=> Cleaning up system profile"
-	doas nix-collect-garbage -d --delete-older-than "$CLEANUP_THRESHOLD"
+	doas nix-collect-garbage -d --delete-older-than "$CLEANUP_THRESHOLD" \
+		|| die "system profile cleanup failed"
 
-	echo "=> Optimizing nix store"
-	nix store optimise
+	echo "=> Optimising nix store"
+	nix store optimise \
+		|| die "store optimisation"
 }
 
 for arg in "$@"; do
