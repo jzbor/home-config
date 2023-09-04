@@ -2,6 +2,15 @@
 
 OLDER_THAN="14d"
 
+if command -v home-manager > /dev/null; then
+	echo
+	echo "=== Expiring home-manager generations ==="
+	echo "> home-manager expire-generations \"$OLDER_THAN\""
+	home-manager expire-generations "$OLDER_THAN"
+else
+	echo "=> Skipping home-manager cleanup ('home-manager' not available)"
+fi
+
 echo
 echo "=== Cleaning local profile ==="
 echo "> nix profile wipe-history --older-than \"$OLDER_THAN\""
