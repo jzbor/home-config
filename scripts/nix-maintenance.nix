@@ -2,8 +2,8 @@
 { lib, stdenv, pkgs, ... }:
 
 let
-  script-name = "nix-cleanup";
-  script-src = builtins.readFile ./nix-cleanup.sh;
+  script-name = "nix-maintenance";
+  script-src = builtins.readFile ./nix-maintenance.sh;
   script = (pkgs.writeShellScriptBin script-name script-src).overrideAttrs(old: {
     buildCommand = "${old.buildCommand}\n patchShebangs $out";
   });

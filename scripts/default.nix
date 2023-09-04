@@ -7,6 +7,7 @@
     (pkgs.callPackage ./mars-status.nix {})
     (pkgs.callPackage ./media-menu.nix {})
     (pkgs.callPackage ./nix-cleanup.nix {})
+    (pkgs.callPackage ./nix-maintenance.nix {})
     (pkgs.callPackage ./open-document.nix {})
     (pkgs.callPackage ./riot.nix {})
     (pkgs.callPackage ./screencast.nix {})
