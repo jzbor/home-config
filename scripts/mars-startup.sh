@@ -12,3 +12,4 @@ xset -dpms
 is_running wallpaper-daem || wallpaper-daemon &
 is_running marsbar || marsbar &
 is_running touchegg || touchegg &
+is_running skippy-xd || skippy-xd --start-daemon > /dev/null 2>&1 &

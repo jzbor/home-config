@@ -4,6 +4,7 @@
   imports = [
     ../programs/marswm
     ../programs/rofi
+    ../programs/skippy-xd
     ../programs/touchegg
     ../programs/xmenu
   ];
