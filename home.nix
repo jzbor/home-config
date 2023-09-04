@@ -37,7 +37,7 @@
     okular
     powertop
     scrcpy
-    tldr
+    tealdeer
     typst
     typst-lsp
     unzip
