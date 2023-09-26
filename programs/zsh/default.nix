@@ -42,6 +42,17 @@
       (builtins.readFile ./config.zsh)
       (builtins.readFile ./rprompt.zsh)
     ];
+  };
 
+  programs.broot = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+
+    settings = {
+      # modal = true;
+      quit_on_last_cancel = true;
+      default_flags = "g";
+    };
   };
 }
