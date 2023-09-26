@@ -242,10 +242,10 @@ def format_xmenu(applications):
             visible_apps = [app for app in cat.apps.values() if not app.nodisplay and app.onlyshowin == '']
             if len(visible_apps) > 0:
                 print(cat.format())
-                for app in visible_apps:
+                for app in sorted(visible_apps, key=lambda x: x.name):
                     print('\t{}'.format(app.format()))
     else:
-        for app in applications:
+        for app in sorted(applications, key=lambda x: x.name):
             print(app.format())
 
 
