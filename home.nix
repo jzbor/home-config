@@ -20,7 +20,7 @@
 
   home.sessionVariables = {
     EDITOR = "nvim";
-    TERMINAL = "buttermilk";
+    TERMINAL = "${pkgs.buttermilk}/bin/buttermilk";
   };
 
   home.file = {
@@ -45,12 +45,13 @@
     zip
 
     # fonts
+    cascadia-code
+    fira-code
+    fira-code-symbols
+    liberation_ttf
     noto-fonts
     noto-fonts-cjk
     noto-fonts-emoji
-    liberation_ttf
-    fira-code
-    fira-code-symbols
   ];
 
   services.nextcloud-client = {

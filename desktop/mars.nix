@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ../programs/buttermilk
     ../programs/marswm
     ../programs/rofi
     ../programs/skippy-xd
