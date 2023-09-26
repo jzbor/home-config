@@ -1,6 +1,8 @@
 { pkgs, ... }:
 
-{
+let
+  lockScript = pkgs.writeScriptBin "lock-screen" "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 100 2";
+in {
   imports = [
     ../programs/buttermilk
     ../programs/marswm
@@ -18,6 +20,8 @@
     xorg.xev
     xorg.xkill
     xorg.xprop
+
+    lockScript
   ];
 
   # Set default applications
@@ -55,11 +59,17 @@
   services.screen-locker = {
     enable = true;
     xautolock.enable = false;  # time based locking
-    lockCmd = "${pkgs.i3lock-fancy-rapid}/bin/i3lock-fancy-rapid 100 2";
+    lockCmd = "${lockScript}/bin/lock-screen";
 
     # disable automatic screen locking
     inactiveInterval = 10000;
     xss-lock.screensaverCycle = 10000;
+  };
+  xdg.desktopEntries.lock-screen = {
+    name = "Lock Screen";
+    exec = "lock-screen";
+    categories = [ "System" "Utility" ];
+    icon = "system-lock-screen";
   };
 
   xsession = {
