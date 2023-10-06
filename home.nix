@@ -30,7 +30,7 @@
   };
 
   home.packages = with pkgs; [
-    (pkgs.uutils-coreutils.override { prefix = ""; })
+    uutils-coreutils-noprefix
     btop
     foliot
     librespeed-cli
