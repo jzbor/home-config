@@ -18,9 +18,9 @@ askpass() {
 	# disable echoing for tty
 	stty -echo
 	# set a trap if script gets interrupted
-	trap "stty $old_tty" EXIT
+	trap 'stty $old_tty' EXIT
 
-	read "$1"
+	read -r "$1"
 
 	# reset shell environment
 	stty "$old_tty"
@@ -42,7 +42,7 @@ git_assert_branch () {
 	if [ -z "$1" ] || [ -z "$2" ]; then
 		die "git_assert_branch needs two arguments (directory and branch name)"
 	fi
-	test "$2" = "$(git -C $1 rev-parse --abbrev-ref HEAD)"
+	test "$2" = "$(git -C "$1" rev-parse --abbrev-ref HEAD)"
 }
 
 update_system () {

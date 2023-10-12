@@ -37,7 +37,7 @@ else
 fi
 
 if [ "$1" != "--select" ] && [ "$1" != "--focused" ]; then
-    if ! (command -v "$(echo $run | cut -d' ' -f1)" > /dev/null 2>&1); then
+    if ! (command -v "$(echo "$run" | cut -d' ' -f1)" > /dev/null 2>&1); then
         echo "$run not runnable"
         exit 1
     else
@@ -46,31 +46,31 @@ if [ "$1" != "--select" ] && [ "$1" != "--focused" ]; then
     fi
 fi
 
-x="$(echo $dims | cut -d"+" -f1)"
-y="$(echo $dims | cut -d"+" -f2)"
-width="$(echo $dims | cut -d"+" -f3)"
-height="$(echo $dims | cut -d"+" -f4)"
+x="$(echo "$dims" | cut -d"+" -f1)"
+y="$(echo "$dims" | cut -d"+" -f2)"
+width="$(echo "$dims" | cut -d"+" -f3)"
+height="$(echo "$dims" | cut -d"+" -f4)"
 
 if [ -z "$wid" ]; then
     i=0
-    while ! (xdo id -p $pid) && [ "$i" -lt 1000 ]; do
+    while ! (xdo id -p "$pid") && [ "$i" -lt 1000 ]; do
         sleep 0.001
         i=$((i+1))
     done
     sleep 0.1
 
-    wid="$(xdo id -p $pid | tail -n 1)"
-    echo ids: $wid $pid
+    wid="$(xdo id -p "$pid" | tail -n 1)"
+    echo "ids: $wid $pid"
     [ -n "$wid" ] || exit
     selector="-p $pid"
 fi
 
 if command -v mars-relay > /dev/null 2>&1; then
-	wid_no_prefix="$(echo $wid | tail -c +3)"
+	wid_no_prefix="$(echo "$wid" | tail -c +3)"
 	dec_wid="$(echo "ibase=16; $wid_no_prefix" | bc)"
-	mars-relay -w $dec_wid tiled unset
+	mars-relay -w "$dec_wid" tiled unset
 fi
 
-xdo move -x $x -y $y $selector
+xdo move -x "$x" -y "$y" "$selector"
 sleep 0.05
-xdo resize -w $width -h $height $selector
+xdo resize -w "$width" -h "$height" "$selector"

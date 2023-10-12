@@ -22,7 +22,7 @@ pa_muted () {
 }
 
 pa_loop () {
-	pactl subscribe | grep --line-buffered "Event 'change' on sink " | while read line; do
+	pactl subscribe | grep --line-buffered "Event 'change' on sink " | while read -r _; do
 		update_blocks
 	done
 }
@@ -84,9 +84,9 @@ battery_block () {
 	if [ -e "$BATTERY_PATH" ]; then
 		status="$(cat "$BATTERY_PATH/status")"
 		if [ "$status" = 'Charging' ]; then
-			printf 'charging: %s' "$(cat $BATTERY_PATH/capacity)%"
+			printf 'charging: %s' "$(cat "$BATTERY_PATH/capacity")%"
 		else
-			printf 'battery: %s' "$(cat $BATTERY_PATH/capacity)%"
+			printf 'battery: %s' "$(cat "$BATTERY_PATH/capacity")%"
 		fi
 	else
 		echo "plugged in"
