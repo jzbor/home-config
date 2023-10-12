@@ -12,6 +12,7 @@
     (pkgs.callPackage ./riot.nix {})
     (pkgs.callPackage ./screencast.nix {})
     (pkgs.callPackage ./spotify-wm-compat.nix {})
+    (pkgs.callPackage ./switch-dir.nix {})
     (pkgs.callPackage ./wallpaper-daemon.nix {})
     (pkgs.callPackage ./xdg-xmenu.nix {})
 

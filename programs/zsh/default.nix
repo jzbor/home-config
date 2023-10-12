@@ -30,11 +30,12 @@
       enter = "dev-shell -e";
       installed-nixos-packages = "nix path-info -shr /run/current-system | sort -hk2";
       installed-profile-packages = "nix path-info -shr \"$HOME/.nix-profile\" | sort -hk2";
+      nixos-system-generations = "nix-env -p /nix/var/nix/profiles/system --list-generations";
       pin-nix-shell = "nix-instantiate shell.nix --indirect --add-root shell.drv";
       rgrep = "grep -RHIni --exclude-dir .git --exclude tags --color";
+      sd = "cd $(switch-dir)";
       stored-nix-pkgs = "find /nix/store -maxdepth 1 | xargs du -sh | sort -h";
       valgrind = "valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes";
-      nixos-system-generations = "nix-env -p /nix/var/nix/profiles/system --list-generations";
     };
 
     # Additional configuration
@@ -42,17 +43,5 @@
       (builtins.readFile ./config.zsh)
       (builtins.readFile ./rprompt.zsh)
     ];
-  };
-
-  programs.broot = {
-    enable = true;
-    enableZshIntegration = true;
-    enableBashIntegration = true;
-
-    settings = {
-      # modal = true;
-      quit_on_last_cancel = true;
-      default_flags = "g";
-    };
   };
 }
