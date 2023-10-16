@@ -11,6 +11,7 @@ if pidof .spotify-wrapped > /dev/null; then
     done
 else
     spotify &
+    xid=""
     while [ -z "$xid" ]; do
         xid="$(xdotool search --class spotify)"
         sleep 0.2

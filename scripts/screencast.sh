@@ -1,5 +1,7 @@
 #!/bin/sh
 
+set +o nounset
+
 CC_RED="\e[0;31m"
 CC_BLUE="\e[0;34m"
 
@@ -57,8 +59,9 @@ get_audio () {
 
 record () {
     [ -d "$DEST" ] || mkdir -vp "$DEST"
+    # shellcheck disable=SC2046
     ffmpeg -f x11grab -y -r 60 -s "$resolution" -i ":0.0$offset" \
-        "$(get_audio)" \
+        $(get_audio) \
         -vcodec h264 -pix_fmt yuv420p \
         -vf "crop=trunc(iw/2)*2:trunc(ih/2)*2" \
         "$DEST/$FILENAME"
