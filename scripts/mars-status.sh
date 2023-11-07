@@ -12,6 +12,20 @@ confirmation_submenu () {
 	printf "\n\tYou sure?\n\t\t%s" "$1"
 }
 
+gen_media_menu () {
+	for player in $(playerctl -l); do
+		gen_player_menu "$player"
+	done
+}
+
+gen_player_menu () {
+	echo "$1"
+	printf "\t%s - %s\n" "$(property_for_player "$1" title)" "$(property_for_player "$1" artist)"
+	printf "\t%s\tplayerctl play-pause -p \"%s\"\n" "$(play_pause_label "$1")" "$1"
+	printf "\tnext\tplayerctl next -p \"%s\"\n" "$1"
+	printf "\tprevious\tplayerctl prev -p \"%s\"\n" "$1"
+}
+
 pa_volume () {
 	pactl get-sink-volume @DEFAULT_SINK@ | grep "Volume" | sed 's/.*\/\s*\(.*\) \s*\/.*/\1/;'
 }
@@ -30,6 +44,30 @@ pa_loop () {
 	done
 }
 
+play_pause_label () {
+	if [ "$(playerctl status -p "$1")" = "Playing" ]; then
+		echo "pause"
+	else
+		echo "play"
+	fi
+}
+
+property_for_player () {
+	playerctl metadata -p "$1" | grep "xesam:$2" | sed 's/^\([a-zA-Z]*\) xesam:\([a-zA-Z]*\) *\(.*\)/\3/'
+}
+
+audio_menu () {
+	SINK_MENU="$(pactl list sinks | grep "Name: \|Description:" \
+		| sed 'N; s/\t*Name: \(.*\)\n\t*Description: \(.*\)/\t\2\tpactl set-default-sink \1/')"
+	SOURCE_MENU="$(pactl list sources | grep "Name: \|Description:" \
+		| sed 'N; s/\t*Name: \(.*\)\n\t*Description: \(.*\)/\t\2\tpactl set-default-source \1/')"
+	printf "Change default output\n%s\nChange default input\n%s" "$SINK_MENU" "$SOURCE_MENU" | xmenu | sh
+}
+
+media_menu () {
+	gen_media_menu | xmenu | sh
+}
+
 system_menu () {
 SYSTEM_MENU="Logout $(confirmation_submenu 'pkill marswm')
 Suspend $(confirmation_submenu 'systemctl suspend')
@@ -37,8 +75,8 @@ Poweroff $(confirmation_submenu poweroff)
 Reboot $(confirmation_submenu reboot)
 
 Output Profile
-$(find ~/.screenlayout -type f | sed 's/^\(.*\)\/\(.*\)\(\.sh\)/\t\2\t\/bin\/sh \1\/\2\3/')"
-	echo "$SYSTEM_MENU" | xmenu | /bin/sh
+$(find ~/.screenlayout -type f | sed 's/^\(.*\)\/\(.*\)\(\.sh\)/\t\2\tsh \1\/\2\3/')"
+	echo "$SYSTEM_MENU" | xmenu | sh
 }
 
 
@@ -56,8 +94,9 @@ battery_button () {
 
 volume_button () {
 	case "$BUTTON" in
+		1) media_menu ;;
 		2) pactl set-sink-mute @DEFAULT_SINK@ toggle ;;
-		3) media-menu ;;
+		3) audio_menu ;;
 		4) pactl set-sink-volume @DEFAULT_SINK@ +5% \
 			&& canberra-gtk-play -i audio-volume-change ;;
 		5) pactl set-sink-volume @DEFAULT_SINK@ -5% \
