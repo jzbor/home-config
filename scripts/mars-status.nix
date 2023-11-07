@@ -6,6 +6,7 @@ writeShellApplication {
     gnugrep
     libcanberra-gtk3
     libnotify
+    power-profiles-daemon
     pulseaudio
     xmenu
   ];
