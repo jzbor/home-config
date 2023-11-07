@@ -1,9 +1,5 @@
 # Root window actions
 - modifiers: []
-  button: 2
-  targets: [root]
-  action: !execute moonwm-menu favorites-pie
-- modifiers: []
   button: 3
   targets: [root]
   action: !execute xdg-xmenu -m | xmenu | /bin/sh
