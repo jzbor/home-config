@@ -11,12 +11,12 @@ if pidof .spotify-wrapped > /dev/null; then
     done
 else
     spotify &
-    xid=""
-    while [ -z "$xid" ]; do
-        xid="$(xdotool search --class spotify)"
-        sleep 0.2
-    done
     sleep 0.5
+    xids="$(xdotool search --class spotify)"
+    while [ -z "$xids" ]; do
+        sleep 0.2
+        xids="$(xdotool search --class spotify)"
+    done
     for xid in $(xdotool search --class spotify); do
 	mars-relay -w "$xid" send-to-workspace 7
     done
