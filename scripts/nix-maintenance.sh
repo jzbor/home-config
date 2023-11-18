@@ -6,6 +6,8 @@ HOME_BRANCH="master"
 COMMIT_MESSAGE="Updating flake inputs"
 CLEANUP_THRESHOLD="14d"
 
+set +o nounset
+
 
 askpass() {
 	# print prompt
