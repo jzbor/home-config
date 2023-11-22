@@ -27,7 +27,7 @@
 			<action type="RUN_COMMAND">
 				<repeat>false</repeat>
 				/* <command>moonwm-menu expose &</command> */
-				<command>killall -2 rofi || (xdotool search --onlyvisible --class skippy-xd && skippy-xd --deactivate-window-picker) ||  mars-relay menu &</command>
+				<command>pkill -2 rofi || (xdotool search --onlyvisible --class skippy-xd && skippy-xd --deactivate-window-picker) ||  mars-relay menu &</command>
 				<on>begin</on>
 			</action>
 		</gesture>
