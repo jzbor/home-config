@@ -12,10 +12,14 @@ in {
     ../programs/xmenu
   ];
 
-  home.packages = with pkgs; [
+  home.packages = with pkgs;
+  let
+    thunarPlugins = with xfce; [ thunar-archive-plugin thunar-volman ];
+  in [
     gthumb
+    gnome.file-roller
     pavucontrol
-    pcmanfm
+    (xfce.thunar.override { thunarPlugins = thunarPlugins; })
     xclip
     xorg.xev
     xorg.xkill
@@ -29,7 +33,7 @@ in {
   xdg.mimeApps.defaultApplications =
     let
       imageViewers = [ "org.gnome.gThumb.desktop" ];
-      fileBrowsers = [ "pcmanfm.desktop" ];
+      fileBrowsers = [ "thunar.desktop" "pcmanfm.desktop" ];
       pdfReaders = [ "org.pwmt.zathura.desktop" "org.gnome.Evince.desktop" ];
     in {
       "inode/directory" = fileBrowsers;
