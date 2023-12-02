@@ -85,7 +85,7 @@
   action: !execute firefox --private-window
 - modifiers: [ Mod4 ]
   key: b
-  action: !execute thunar
+  action: !execute pcmanfm
 - modifiers: [ Mod4 ]
   key: v
   action: !execute mpv

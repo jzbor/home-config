@@ -12,14 +12,11 @@ in {
     ../programs/xmenu
   ];
 
-  home.packages = with pkgs;
-  let
-    thunarPlugins = with xfce; [ thunar-archive-plugin thunar-volman ];
-  in [
+  home.packages = with pkgs; [
     gthumb
     gnome.file-roller
     pavucontrol
-    (xfce.thunar.override { thunarPlugins = thunarPlugins; })
+    pcmanfm
     xclip
     xorg.xev
     xorg.xkill
