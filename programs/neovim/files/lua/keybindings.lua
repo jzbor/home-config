@@ -15,10 +15,6 @@ vim.api.nvim_set_keymap('n', '<F5>', ':source ~/.config/nvim/init.lua<CR>', {})
 vim.api.nvim_set_keymap('n', '<F6>', ':set wrap!<CR>', {})
 
 -- Split navigation and resizing
-vim.api.nvim_set_keymap('n', '<C-h>', ':wincmd h<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-j>', ':wincmd j<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-k>', ':wincmd k<CR>', {})
-vim.api.nvim_set_keymap('n', '<C-l>', ':wincmd l<CR>', {})
 vim.api.nvim_set_keymap('n', '<C-Left>', ':vertical resize -5<CR>', {})
 vim.api.nvim_set_keymap('n', '<C-Down>', ':resize -5<CR>', {})
 vim.api.nvim_set_keymap('n', '<C-Up>', ':resize +5<CR>', {})
