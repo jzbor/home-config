@@ -38,6 +38,7 @@
     powertop
     scrcpy
     tealdeer
+    tree
     typst
     typst-lsp
     unzip
