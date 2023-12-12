@@ -34,6 +34,7 @@
     btop
     foliot
     librespeed-cli
+    nixd
     okular
     powertop
     scrcpy
