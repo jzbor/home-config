@@ -97,8 +97,8 @@
 - modifiers: [ Mod4 ]
   key: y
   action: !execute open-document
-- modifiers: [ Mod4 ]
-  key: q
-  action: !execute buttermilk -e "sleep 0.1; mars-relay fullscreen set; marswm --print-keys | bat -l yaml"
+- modifiers: [ Mod4, Shift ]
+  key: slash
+  action: !execute buttermilk -e "sleep 0.1; mars-relay fullscreen set; mars-help"
 
 

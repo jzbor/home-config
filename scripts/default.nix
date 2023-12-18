@@ -4,6 +4,7 @@
   home.packages = [
     (pkgs.callPackage ./dev-shell.nix {})
     (pkgs.callPackage ./fman.nix {})
+    (pkgs.callPackage ./mars-help.nix {})
     (pkgs.callPackage ./mars-startup.nix {})
     (pkgs.callPackage ./mars-status.nix {})
     (pkgs.callPackage ./nix-maintenance.nix {})
