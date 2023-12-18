@@ -30,7 +30,7 @@
   };
 
   home.packages = with pkgs; [
-    uutils-coreutils-noprefix
+    bat
     btop
     foliot
     librespeed-cli
@@ -43,6 +43,7 @@
     typst
     typst-lsp
     unzip
+    uutils-coreutils-noprefix
     yt-dlp
     zip
 
