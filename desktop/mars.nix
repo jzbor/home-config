@@ -52,7 +52,7 @@ in {
 
   services.picom = {
     enable = true;
-    package = pkgs.picom;
+    package = pkgs.picom-next;
     backend = "glx";
     vSync = true;
   };
