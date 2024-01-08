@@ -41,6 +41,9 @@
       # Force enable hardware video decoding
       media.hardware-video-decoding.enabled = true;
       media.hardware-video-decoding.force-enabled = true;
+
+      # Enable tab unloading on low memory
+      browser.tabs.unloadOnLowMemory = true;
     };
   };
 }
