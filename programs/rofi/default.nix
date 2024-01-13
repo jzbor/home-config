@@ -27,6 +27,16 @@
     drun-display-format = "{name} \\n<span weight= 'light' size='small'><i>{comment}</i></span>";
     sidebar-mode = true;
     disable-history = false;
+
+    kb-remove-to-eol = "";
+    kb-remove-char-back = "";
+    kb-mode-complete = "";
+    kb-accept-entry = "KP_Enter";
+
+    kb-row-left = "Control+h";
+    kb-row-down = "Control+j";
+    kb-row-up = "Control+k";
+    kb-row-right = "Control+l";
   };
 
   # TODO switch when buttermilk overlay is available in flake
