@@ -75,6 +75,8 @@ Suspend $(confirmation_submenu 'systemctl suspend')
 Poweroff $(confirmation_submenu poweroff)
 Reboot $(confirmation_submenu reboot)
 
+Keyboard Layout
+$(xkb-switch -l | sed 's/\(.*\)/\t\1\txkb-switch -s \1 \&\& notify-send \"Switched keyboard layout to \\\"\1\\\"\"/')
 Output Profile
 $(find ~/.screenlayout -type f | sed 's/^\(.*\)\/\(.*\)\(\.sh\)/\t\2\tsh \1\/\2\3/')"
 	echo "$SYSTEM_MENU" | xmenu | sh

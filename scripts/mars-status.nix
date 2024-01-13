@@ -8,6 +8,7 @@ writeShellApplication {
     libnotify
     power-profiles-daemon
     pulseaudio
+    xkb-switch
     xmenu
   ];
   text = builtins.readFile ./mars-status.sh;
